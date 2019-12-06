@@ -1,4 +1,6 @@
 import models
+import os
+from playhouse.db_url import connect
 from flask import Flask, request, jsonify, g
 from flask_login import LoginManager
 from flask_cors import CORS
@@ -52,8 +54,7 @@ app.register_blueprint(user, url_prefix='/api/v1/user')
 
 if 'ON_HEROKU' in os.environ:
     DATABASE = connect(os.environ.get('DATABASE_URL'))
-else:
-    DATABASE = SqliteDatabase('workouts.sqlite')
+
 
 
 if __name__ == "__main__": 

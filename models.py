@@ -1,6 +1,8 @@
 import datetime
 from peewee import *
 from flask_login import UserMixin
+import os
+from playhouse.db_url import connect
 
 if 'ON_HEROKU' in os.environ:
     DATABASE = connect(os.environ.get('DATABASE_URL'))
@@ -14,6 +16,7 @@ class User(UserMixin, Model):
     # id = PrimaryKeyField(null=False)
     email = CharField(unique=True)
     password = CharField()
+    #workouts = []
 
     def __str__(self):
         return '<User: {}, id: {}>'.format(self.email, self.id)
@@ -31,6 +34,7 @@ class Workout(Model):
     activity = CharField()
     duration = CharField()
     perceived_effort = CharField()
+    user = ForeignKeyField(User, backref='workouts')
     created_at = DateTimeField(default=datetime.datetime.now)
 
     class Meta:
