@@ -89,8 +89,10 @@ def update_workout(id):
     workout_to_update.update(
         title=payload['title'],
         activity=payload['activity'],
+        emphasis=payload['emphasis'],
         duration=payload['duration'],
-        description=payload['description']
+        description=payload['description'],
+        tss=payload['tss']
     ).where(models.Workout.id==id).execute()
 
     # Get a dictionary of the updated workout to send back to the client.

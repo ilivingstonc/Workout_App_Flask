@@ -32,8 +32,10 @@ class Workout(Model):
     # id = PrimaryKeyField(null=False)
     title = CharField(null=False)
     activity = CharField()
+    emphasis = CharField()
     duration = CharField()
     description = CharField()
+    tss = IntegerField()
     user = ForeignKeyField(User, backref='workouts')
     created_at = DateTimeField(default=datetime.datetime.now)
 
