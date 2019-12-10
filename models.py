@@ -33,7 +33,7 @@ class Workout(Model):
     title = CharField(null=False)
     activity = CharField()
     duration = CharField()
-    perceived_effort = CharField()
+    description = CharField()
     user = ForeignKeyField(User, backref='workouts')
     created_at = DateTimeField(default=datetime.datetime.now)
 
