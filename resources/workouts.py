@@ -87,9 +87,10 @@ def update_workout(id):
         return jsonify(data={}, status={'code': 401, 'message': 'You may only edit your workout'})
     # update form
     workout_to_update.update(
+        date=payload['date'],
         title=payload['title'],
         activity=payload['activity'],
-        emphasis=payload['emphasis'],
+        intensity=payload['intensity'],
         duration=payload['duration'],
         description=payload['description'],
         tss=payload['tss']

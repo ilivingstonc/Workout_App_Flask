@@ -30,9 +30,10 @@ class User(UserMixin, Model):
 
 class Workout(Model):
     # id = PrimaryKeyField(null=False)
+    date = DateField(default=datetime.date.today)
     title = CharField(null=False)
     activity = CharField()
-    emphasis = CharField()
+    intensity = CharField()
     duration = CharField()
     description = CharField()
     tss = IntegerField()
