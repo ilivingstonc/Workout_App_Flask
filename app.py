@@ -46,10 +46,10 @@ def after_request(response):
 def index():
     return 'Hello World'
 
-CORS(workout, origins=['http://localhost:3000', 'https://workout-app-react.herokuapp.com/'], supports_credentials=True)
+CORS(workout, origins=['http://localhost:3000', 'https://workout-app-react.herokuapp.com'], supports_credentials=True)
 app.register_blueprint(workout, url_prefix='/api/v1/workouts')
 
-CORS(user, origins=['http://localhost:3000', 'https://workout-app-react.herokuapp.com/'], supports_credentials=True)
+CORS(user, origins=['http://localhost:3000', 'https://workout-app-react.herokuapp.com'], supports_credentials=True)
 app.register_blueprint(user, url_prefix='/api/v1/user')
 
 if 'ON_HEROKU' in os.environ:
